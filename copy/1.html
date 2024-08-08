@@ -6,6 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <input id="copy-text" type="text" value="copied!">
+<button onclick="fun()">Copy</button>
+
+<script>
+    function fun() {
+        var input = document.getElementById("copy-text");
+        input.select();
+        document.execCommand('copy');
+        alert("Text copied: " + input.value);
+    }
+</script>
+
 </body>
 </html>
