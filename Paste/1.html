@@ -1,0 +1,24 @@
+<input id="copy-text" type="text" value="copied!">
+<button onclick="copyText()">Copy</button>
+<button onclick="pasteText()">Paste</button>
+  <!-- using the Clipboard API: paste button -->
+<script>
+    function copyText() {
+        var input = document.getElementById("copy-text").value;
+        navigator.clipboard.writeText(input).then(function() {
+            alert("Text copied: " + input);
+        }).catch(function(err) {
+            console.error("Failed to copy text: ", err);
+        });
+    }
+
+    function pasteText() {
+        navigator.clipboard.readText().then(function(text) {
+            var input = document.getElementById("copy-text");
+            input.value = text;
+            alert("Text pasted: " + text);
+        }).catch(function(err) {
+            console.error("Failed to read clipboard contents: ", err);
+        });
+    }
+</script>
